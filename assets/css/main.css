@@ -4936,6 +4936,10 @@ pre code {
   margin-left: -10px;
 }
 
+.hide{
+  display : none;
+  }
+  
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -179922,4 +179926,5 @@ a:link {
     margin: auto;
   }
 }
+
 

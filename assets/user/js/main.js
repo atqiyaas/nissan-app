@@ -3,6 +3,10 @@
 
   $(document).on('ready',function() {
     background();
+    $('#btn-next').on('click',function(){
+          $('.car-search-form #form-1').addClass('hide');
+          $('.car-search-form #form-2').removeClass('hide');
+        });
   });
 
   $(window).on("load", function() {

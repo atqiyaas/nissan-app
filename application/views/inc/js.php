@@ -25,4 +25,5 @@
   <script>
     $(document).ready(function() {
       $("#type2").chained("#brand2");
+     })
     </script>

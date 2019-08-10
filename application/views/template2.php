@@ -24,7 +24,7 @@
             <h3 class="title">Service Reservation</h3>
             <?= $this->session->flashdata('message'); ?>
             <form class="car-search-form" method="post">
-              <div class="row">
+              <div class="row" id="form-1">
                 <div class="col-xl-12 form-group">
                   <select id="type" name="car">
                     <option>Select Your Car Type</option>
@@ -33,16 +33,12 @@
                     <?php endforeach; ?>
                   </select>
                 </div>
-              </div>
-              <!-- schedule -->
-              <div class="row">
+
                 <div class="form-group col-xl-12">
                   <i class="fa fa-calendar"></i>
                   <input type='text' class='form-control has-icon datepicker-here' data-language='en' placeholder="Schedule Date Service">
                 </div>
-              </div>
-              <!-- time  -->
-              <div class="row">
+
                 <div class="col-xl-12 form-group">
                   <select id="type" name="type">
                     <option>Select Time Services</option>
@@ -51,38 +47,50 @@
                     <?php endforeach; ?>
                   </select>
                 </div>
-              </div>
-              <!-- nopol -->
-              <div class="row">
+
                 <div class="form-group col-xl-12">
                   <i class="fa fa-bookmark"></i>
                   <input type='text' class='form-control has-icon' placeholder="Nomor Polisi" required="">
                 </div>
-              </div>
-              <!-- button submit -->
-              <?php if (!$this->session->userdata('user_id')): ?>
-              <button type="submit" class="cmn-btn btn-radius" ><i class="fa fa-lock" disabled></i> Login for Booking</button>
-              <p><small class="text-danger">You have to login first to add your book !!!</small></p>
-              <?php else: ?>
-              <button type="submit" class="cmn-btn btn-radius" ><i class="fa fa-book"></i> Book Now</button>
-              <?php endif ?>
-            </form>
+                <?php if (!$this->session->userdata('user_id')): ?>
+                  <button  type="submit" class="cmn-btn btn-radius" ><i class="fa fa-lock" disabled></i> Login for Booking</button>
+                  <p><small class="text-danger">You have to login first to add your book !!!</small></p>
+                  <?php else: ?>
+                    <button id="btn-next" type="button" class="cmn-btn btn-radius" ><i class="fa fa-book"></i> Next</button>
+                  <?php endif ?>
+                </div>
+
+                <div class="row hide" id="form-2">
+                  <a class="btn btn-sm btn-info" id="general">General Repair</a>
+                  <a class="btn btn-sm btn-primary" id="periodic">Periodic Maintenance</a>
+                </div>
+
+                <div class="row" id="">
+
+                </div>
+                <!-- button submit -->
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="banner-content">
-            <h1 class="title">Melayani dengan hati </h1>
-            <p>Lorem ipsum dolor sit amet, congue placerat nec. Leo faubus sed eleifend bibendum neque vehiculanulla. Lorem ipsum dolor sit amet, congue placerat nec. Leo faubus sed eleifend bibendum neque vehiculanulla.</p>
-            <a href="#0" class="cmn-btn">see all our cars</a>
+          <div class="col-lg-6">
+            <div class="banner-content">
+              <h1 class="title">Melayani dengan hati </h1>
+              <p>Lorem ipsum dolor sit amet, congue placerat nec. Leo faubus sed eleifend bibendum neque vehiculanulla. Lorem ipsum dolor sit amet, congue placerat nec. Leo faubus sed eleifend bibendum neque vehiculanulla.</p>
+              <a href="#0" class="cmn-btn">see all our cars</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <?php $this->load->view('inc/user/footer'); ?>
-  <?php $this->load->view('inc/js'); ?>
-  
+    </section>
 
-</body>
-</html>
+    <?php $this->load->view('inc/user/footer'); ?>
+    <?php $this->load->view('inc/js'); ?>
+
+<script>
+  $('#btn-next').on('click',function(){
+          $('.car-search-form #form-1').addClass('hide')
+          $('.car-search-form #form-2').removeClass('hide')
+        });
+</script>
+  </body>
+  </html>
